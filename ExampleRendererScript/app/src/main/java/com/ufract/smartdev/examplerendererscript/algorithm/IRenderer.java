@@ -9,5 +9,6 @@ import android.graphics.Bitmap;
 public interface IRenderer
 {
     String getRendererName();
+
     Bitmap render(Bitmap bitmapOrigin);
 }

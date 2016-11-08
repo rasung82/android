@@ -4,12 +4,16 @@
 
 #include <jni.h>
 
-
-
 //http://egloos.zum.com/jimbo73/v/1486292
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+/*********************************************************
+ * Android Studio에 NDK 설정
+ *   - http://yucaroll.tistory.com/1
+ *********************************************************/
+
 
 
 /*********************************************************
@@ -18,17 +22,17 @@ extern "C" {
 
 /// in 메모리 할당 및 pixels 배열 복사 (size * 4)
 JNIEXPORT void JNICALL
-    Java_com_ufract_smartdev_examplerenderscript_RsJNI_CopyToIn
+    Java_com_ufract_smartdev_examplerendererscript_RsJni_CopyToIn
     (JNIEnv *env, jobject thiz, jobject bitmap);
 
 /// out 메모리 할당 (size * 4)
 JNIEXPORT void JNICALL
-    Java_com_ufract_smartdev_examplerenderscript_RsJNI_CreateMemoryToOut
+    Java_com_ufract_smartdev_examplerendererscript_RsJni_CreateMemoryToOut
     (JNIEnv *env, jobject thiz, jint size);
 
 /// out 메모리의 내용을 pixels 배열로 복사 (size * 4)
 JNIEXPORT void JNICALL
-    Java_com_ufract_smartdev_examplerenderscript_RsJNI_CopyFromOut
+    Java_com_ufract_smartdev_examplerendererscript_RsJni_CopyFromOut
     (JNIEnv *env, jobject thiz, jobject bitmap);
 
 
