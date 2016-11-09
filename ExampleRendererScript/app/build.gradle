@@ -13,7 +13,6 @@ def getNdkBuildPath() {
     } else {
         command += "/ndk-build"
     }
-
     return command
 }
 
@@ -57,14 +56,12 @@ android {
         }
     }
 
-    // App의 Java Code를 Compile할 때 buildNative Task를 실행하여 Native Library도 같이
-    // Build되도록 설정합니다.
+    // App의 Java Code를 Compile할 때 buildNative Task를 실행하여 Native Library도 같이 Build 되도록 설정합니다.
     tasks.withType(JavaCompile) {
         compileTask -> compileTask.dependsOn buildNative
     }
 
-    // NDK로 생성된 Native Library와 Object를 삭제하기 위한 Task를 정의합니다.
-    //noinspection GroovyAssignabilityCheck
+    // NDK로 생성된 Native Library와 Object를 삭제하기 위한 Task를 정의합니다. noinspection GroovyAssignabilityCheck
     task cleanNative(type: Exec, description: 'Clean native objs and lib') {
         commandLine getNdkBuildPath(), '-C', file('src/main').absolutePath, 'clean'
     }
@@ -77,8 +74,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            jniDebuggable true
+        }
     }
 }
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

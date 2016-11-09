@@ -6,7 +6,9 @@ LOCAL_CFLAGS += -Wall
 LOCAL_LDLIBS := -llog -ljnigraphics
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
 LOCAL_MODULE    := Rs-jni
-LOCAL_SRC_FILES := src/Rs-jni.c 
+LOCAL_SRC_FILES := src/Rs-jni.c \
+                   src/Allocation.c
+
 
 
 include $(BUILD_SHARED_LIBRARY)
