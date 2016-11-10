@@ -1,12 +1,16 @@
 package com.ufract.smartdev.examplerendererscript.algorithm;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 /**
  * Created by rasung82 on 2016. 11. 7..
  */
 
 public class RendererJava implements IRenderer {
+
+    public static String TAG = RendererJava.class.getSimpleName();
+
 
     @Override
     public String getRendererName() {
@@ -15,6 +19,8 @@ public class RendererJava implements IRenderer {
 
     @Override
     public Bitmap render(Bitmap bitmapOrigin) {
+        Log.v(TAG, getRendererName()+".renderer()");
+
         int width = bitmapOrigin.getWidth();
         int height = bitmapOrigin.getHeight();
 

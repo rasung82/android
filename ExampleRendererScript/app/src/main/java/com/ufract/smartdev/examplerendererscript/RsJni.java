@@ -17,4 +17,8 @@ public class RsJni {
 
     public native static void CopyFromOut(Bitmap bitmap);
 
+    public native static void CalcNdk(int size);
+
+    public native static void CalcNdkNeon(int size);
+
 }

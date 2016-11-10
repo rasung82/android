@@ -9,14 +9,15 @@ import com.ufract.smartdev.examplerendererscript.RsJni;
  * Created by rasung82 on 2016. 11. 8..
  */
 
-public class RendererNdk implements IRenderer {
+public class RendererNdkNeon implements IRenderer {
 
-    public static String TAG = RendererNdk.class.getSimpleName();
+    public static String TAG = RendererNdkNeon.class.getSimpleName();
 
     @Override
     public String getRendererName() {
-        return RendererNdk.class.getSimpleName();
+        return RendererNdkNeon.class.getSimpleName();
     }
+
 
     @Override
     public Bitmap render(Bitmap bitmapOrigin) {
@@ -35,7 +36,7 @@ public class RendererNdk implements IRenderer {
         RsJni.CreateMemoryToOut(width * height);
 
         // 4. GrayScale 변환
-        RsJni.CalcNdk(width * height);
+        RsJni.CalcNdkNeon(width * height);
 
         // 5. Out 메모리의 내용을 pixels 배열로 복사
         RsJni.CopyFromOut(bitmap);
